@@ -12,7 +12,8 @@ alias k=kubectl
 function kns() { 
   [ $# -eq 0 ] \
     && kubectl config get-contexts | grep '^\*' | awk '{print $5}' \
-    || kubectl config set-context $(kubectl config current-context) --namespace=$1; 
+    || kubectl config set-context $(kubectl config current-context) --namespace=$1;
+}
 ```
 
 Windows
