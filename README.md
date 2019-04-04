@@ -319,3 +319,10 @@ Get updates
 ```
 az aks get-upgrades --resource-group <Resource Group Name> --name <AKS Name>
 ```
+# Docker Cheat Sheet
+
+List all tags of the debian image (thanks to [StackOverflow](https://stackoverflow.com/questions/28320134/how-to-list-all-tags-for-a-docker-image-on-a-remote-registry) pointing to [fordone.com](https://fordodone.com/2015/10/02/docker-get-list-of-tags-in-repository/)
+```
+IMAGE=debian
+curl -s https://registry.hub.docker.com/v1/repositories/${IMAGE}/tags  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}'
+```
